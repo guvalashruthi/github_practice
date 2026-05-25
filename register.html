@@ -60,6 +60,32 @@
                 return re.test(String(email).toLowerCase());
             }
         });
+        //add some more criteria for password strength if needed
+        // For example, check for minimum length, uppercase, lowercase, and special characters
+        function validatePassword(password) {
+            const minLength = 8;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+            if (password.length < minLength) {
+                alert('Password must be at least ' + minLength + ' characters long.');
+                return false;
+            }
+            if (!hasUpperCase) {
+                alert('Password must contain at least one uppercase letter.');
+                return false;
+            }
+            if (!hasLowerCase) {
+                alert('Password must contain at least one lowercase letter.');
+                return false;
+            }
+            if (!hasSpecialChar) {
+                alert('Password must contain at least one special character.');
+                return false;
+            }
+            return true;
+        }
     </script>
 </head> 
 <body>
